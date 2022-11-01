@@ -19,8 +19,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.library.baseAdapters.R
 import androidx.fragment.app.Fragment
+import com.example.lunchtray.R
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.lunchtray.databinding.FragmentStartOrderBinding
@@ -51,6 +51,8 @@ class StartOrderFragment : Fragment() {
         // Navigate to entree menu
         binding.startOrderBtn.setOnClickListener {
             // TODO: navigate to the EntreeMenuFragment
+            findNavController().navigate(R.id.action_startOrderFragment_to_entreeMenuFragment)
+
         }
         return root
     }
