@@ -19,7 +19,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.library.baseAdapters.R
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.lunchtray.databinding.FragmentStartOrderBinding
 
 /**
