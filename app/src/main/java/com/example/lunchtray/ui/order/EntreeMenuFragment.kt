@@ -60,6 +60,7 @@ class EntreeMenuFragment : Fragment() {
             lifecycleOwner = viewLifecycleOwner
             viewModel = sharedViewModel
             // TODO: initialize the EntreeMenuFragment variables
+            entreeMenuFragment = this@EntreeMenuFragment
         }
     }
 
@@ -68,7 +69,7 @@ class EntreeMenuFragment : Fragment() {
      */
     fun goToNextScreen() {
         // TODO: Navigate to the SideMenuFragment
-        findNavController().navigate(R.id.action_accompanimentMenuFragment2_to_checkoutFragment)
+        findNavController().navigate(R.id.action_entreeMenuFragment_to_sideMenuFragment)
     }
 
     /**
