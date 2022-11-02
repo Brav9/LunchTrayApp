@@ -32,7 +32,7 @@ public class FragmentCheckoutBindingImpl extends FragmentCheckoutBinding impleme
     private final android.widget.ScrollView mboundView0;
     // variables
     @Nullable
-    private final android.view.View.OnClickListener mCallback2;
+    private final android.view.View.OnClickListener mCallback3;
     // values
     // listeners
     // Inverse Binding Event Handlers
@@ -61,7 +61,7 @@ public class FragmentCheckoutBindingImpl extends FragmentCheckoutBinding impleme
         this.mboundView0.setTag(null);
         setRootTag(root);
         // listeners
-        mCallback2 = new com.example.lunchtray.generated.callback.OnClickListener(this, 1);
+        mCallback3 = new com.example.lunchtray.generated.callback.OnClickListener(this, 1);
         invalidateAll();
     }
 
@@ -123,7 +123,7 @@ public class FragmentCheckoutBindingImpl extends FragmentCheckoutBinding impleme
         if ((dirtyFlags & 0x2L) != 0) {
             // api target 1
 
-            this.cancelButton.setOnClickListener(mCallback2);
+            this.cancelButton.setOnClickListener(mCallback3);
         }
     }
     // Listener Stub Implementations
