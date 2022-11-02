@@ -24,7 +24,7 @@ public class FragmentSideMenuBindingImpl extends FragmentSideMenuBinding impleme
     private final android.widget.ScrollView mboundView0;
     // variables
     @Nullable
-    private final android.view.View.OnClickListener mCallback1;
+    private final android.view.View.OnClickListener mCallback2;
     // values
     // listeners
     // Inverse Binding Event Handlers
@@ -69,7 +69,7 @@ public class FragmentSideMenuBindingImpl extends FragmentSideMenuBinding impleme
         this.soupPrice.setTag(null);
         setRootTag(root);
         // listeners
-        mCallback1 = new com.example.lunchtray.generated.callback.OnClickListener(this, 1);
+        mCallback2 = new com.example.lunchtray.generated.callback.OnClickListener(this, 1);
         invalidateAll();
     }
 
@@ -216,7 +216,7 @@ public class FragmentSideMenuBindingImpl extends FragmentSideMenuBinding impleme
         if ((dirtyFlags & 0x4L) != 0) {
             // api target 1
 
-            this.nextButton.setOnClickListener(mCallback1);
+            this.nextButton.setOnClickListener(mCallback2);
         }
         if ((dirtyFlags & 0x6L) != 0) {
             // api target 1

@@ -24,7 +24,7 @@ public class FragmentEntreeMenuBindingImpl extends FragmentEntreeMenuBinding imp
     private final android.widget.ScrollView mboundView0;
     // variables
     @Nullable
-    private final android.view.View.OnClickListener mCallback2;
+    private final android.view.View.OnClickListener mCallback3;
     // values
     // listeners
     // Inverse Binding Event Handlers
@@ -69,7 +69,7 @@ public class FragmentEntreeMenuBindingImpl extends FragmentEntreeMenuBinding imp
         this.skilletPrice.setTag(null);
         setRootTag(root);
         // listeners
-        mCallback2 = new com.example.lunchtray.generated.callback.OnClickListener(this, 1);
+        mCallback3 = new com.example.lunchtray.generated.callback.OnClickListener(this, 1);
         invalidateAll();
     }
 
@@ -232,7 +232,7 @@ public class FragmentEntreeMenuBindingImpl extends FragmentEntreeMenuBinding imp
         if ((dirtyFlags & 0x4L) != 0) {
             // api target 1
 
-            this.nextButton.setOnClickListener(mCallback2);
+            this.nextButton.setOnClickListener(mCallback3);
         }
     }
     // Listener Stub Implementations
