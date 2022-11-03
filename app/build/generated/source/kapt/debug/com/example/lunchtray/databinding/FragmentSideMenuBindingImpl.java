@@ -23,7 +23,15 @@ public class FragmentSideMenuBindingImpl extends FragmentSideMenuBinding impleme
     private final android.widget.ScrollView mboundView0;
     // variables
     @Nullable
+    private final android.view.View.OnClickListener mCallback8;
+    @Nullable
+    private final android.view.View.OnClickListener mCallback6;
+    @Nullable
     private final android.view.View.OnClickListener mCallback4;
+    @Nullable
+    private final android.view.View.OnClickListener mCallback9;
+    @Nullable
+    private final android.view.View.OnClickListener mCallback7;
     @Nullable
     private final android.view.View.OnClickListener mCallback5;
     // values
@@ -71,7 +79,11 @@ public class FragmentSideMenuBindingImpl extends FragmentSideMenuBinding impleme
         this.soupPrice.setTag(null);
         setRootTag(root);
         // listeners
+        mCallback8 = new com.example.lunchtray.generated.callback.OnClickListener(this, 5);
+        mCallback6 = new com.example.lunchtray.generated.callback.OnClickListener(this, 3);
         mCallback4 = new com.example.lunchtray.generated.callback.OnClickListener(this, 1);
+        mCallback9 = new com.example.lunchtray.generated.callback.OnClickListener(this, 6);
+        mCallback7 = new com.example.lunchtray.generated.callback.OnClickListener(this, 4);
         mCallback5 = new com.example.lunchtray.generated.callback.OnClickListener(this, 2);
         invalidateAll();
     }
@@ -219,8 +231,12 @@ public class FragmentSideMenuBindingImpl extends FragmentSideMenuBinding impleme
         if ((dirtyFlags & 0x4L) != 0) {
             // api target 1
 
-            this.cancelButton.setOnClickListener(mCallback4);
-            this.nextButton.setOnClickListener(mCallback5);
+            this.cancelButton.setOnClickListener(mCallback8);
+            this.nextButton.setOnClickListener(mCallback9);
+            this.potatoes.setOnClickListener(mCallback6);
+            this.rice.setOnClickListener(mCallback7);
+            this.salad.setOnClickListener(mCallback4);
+            this.soup.setOnClickListener(mCallback5);
         }
         if ((dirtyFlags & 0x6L) != 0) {
             // api target 1
@@ -243,7 +259,7 @@ public class FragmentSideMenuBindingImpl extends FragmentSideMenuBinding impleme
     // callback impls
     public final void _internalCallbackOnClick(int sourceId , android.view.View callbackArg_0) {
         switch(sourceId) {
-            case 1: {
+            case 5: {
                 // localize variables for thread safety
                 // sideMenuFragment != null
                 boolean sideMenuFragmentJavaLangObjectNull = false;
@@ -260,7 +276,43 @@ public class FragmentSideMenuBindingImpl extends FragmentSideMenuBinding impleme
                 }
                 break;
             }
-            case 2: {
+            case 3: {
+                // localize variables for thread safety
+                // viewModel
+                com.example.lunchtray.model.OrderViewModel viewModel = mViewModel;
+                // viewModel != null
+                boolean viewModelJavaLangObjectNull = false;
+
+
+
+                viewModelJavaLangObjectNull = (viewModel) != (null);
+                if (viewModelJavaLangObjectNull) {
+
+
+
+                    viewModel.setEntree("potatoes");
+                }
+                break;
+            }
+            case 1: {
+                // localize variables for thread safety
+                // viewModel
+                com.example.lunchtray.model.OrderViewModel viewModel = mViewModel;
+                // viewModel != null
+                boolean viewModelJavaLangObjectNull = false;
+
+
+
+                viewModelJavaLangObjectNull = (viewModel) != (null);
+                if (viewModelJavaLangObjectNull) {
+
+
+
+                    viewModel.setEntree("salad");
+                }
+                break;
+            }
+            case 6: {
                 // localize variables for thread safety
                 // sideMenuFragment != null
                 boolean sideMenuFragmentJavaLangObjectNull = false;
@@ -274,6 +326,42 @@ public class FragmentSideMenuBindingImpl extends FragmentSideMenuBinding impleme
 
 
                     sideMenuFragment.goToNextScreen();
+                }
+                break;
+            }
+            case 4: {
+                // localize variables for thread safety
+                // viewModel
+                com.example.lunchtray.model.OrderViewModel viewModel = mViewModel;
+                // viewModel != null
+                boolean viewModelJavaLangObjectNull = false;
+
+
+
+                viewModelJavaLangObjectNull = (viewModel) != (null);
+                if (viewModelJavaLangObjectNull) {
+
+
+
+                    viewModel.setEntree("rice");
+                }
+                break;
+            }
+            case 2: {
+                // localize variables for thread safety
+                // viewModel
+                com.example.lunchtray.model.OrderViewModel viewModel = mViewModel;
+                // viewModel != null
+                boolean viewModelJavaLangObjectNull = false;
+
+
+
+                viewModelJavaLangObjectNull = (viewModel) != (null);
+                if (viewModelJavaLangObjectNull) {
+
+
+
+                    viewModel.setEntree("soup");
                 }
                 break;
             }
