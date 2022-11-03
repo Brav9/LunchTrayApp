@@ -23,7 +23,7 @@ import java.text.NumberFormat
 data class MenuItem(
     val name: String,
     val description: String,
-    val price: Double,
+    var price: Double,
     val type: Int
 ) {
     /**
