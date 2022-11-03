@@ -15,6 +15,7 @@
  */
 package com.example.lunchtray.model
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
@@ -71,7 +72,12 @@ class OrderViewModel : ViewModel() {
     fun setEntree(entree: String) {
         // TODO: if _entree.value is not null, set the previous entree price to the current
         //  entree price.
+        if (_entree.value !== null) {
+            val menuItem = menuItems[entree].toString()
+            previousEntreePrice = menuItem.toDouble()
 
+
+        }
         // TODO: if _subtotal.value is not null subtract the previous entree price from the current
         //  subtotal value. This ensures that we only charge for the currently selected entree.
 

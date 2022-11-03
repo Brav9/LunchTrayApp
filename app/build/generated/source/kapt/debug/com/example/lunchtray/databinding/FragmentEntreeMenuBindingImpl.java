@@ -23,6 +23,8 @@ public class FragmentEntreeMenuBindingImpl extends FragmentEntreeMenuBinding imp
     private final android.widget.ScrollView mboundView0;
     // variables
     @Nullable
+    private final android.view.View.OnClickListener mCallback8;
+    @Nullable
     private final android.view.View.OnClickListener mCallback6;
     @Nullable
     private final android.view.View.OnClickListener mCallback7;
@@ -71,6 +73,7 @@ public class FragmentEntreeMenuBindingImpl extends FragmentEntreeMenuBinding imp
         this.skilletPrice.setTag(null);
         setRootTag(root);
         // listeners
+        mCallback8 = new com.example.lunchtray.generated.callback.OnClickListener(this, 3);
         mCallback6 = new com.example.lunchtray.generated.callback.OnClickListener(this, 1);
         mCallback7 = new com.example.lunchtray.generated.callback.OnClickListener(this, 2);
         invalidateAll();
@@ -219,8 +222,9 @@ public class FragmentEntreeMenuBindingImpl extends FragmentEntreeMenuBinding imp
         if ((dirtyFlags & 0x4L) != 0) {
             // api target 1
 
-            this.cancelButton.setOnClickListener(mCallback6);
-            this.nextButton.setOnClickListener(mCallback7);
+            this.cancelButton.setOnClickListener(mCallback7);
+            this.cauliflower.setOnClickListener(mCallback6);
+            this.nextButton.setOnClickListener(mCallback8);
         }
         if ((dirtyFlags & 0x6L) != 0) {
             // api target 1
@@ -243,7 +247,7 @@ public class FragmentEntreeMenuBindingImpl extends FragmentEntreeMenuBinding imp
     // callback impls
     public final void _internalCallbackOnClick(int sourceId , android.view.View callbackArg_0) {
         switch(sourceId) {
-            case 1: {
+            case 3: {
                 // localize variables for thread safety
                 // entreeMenuFragment
                 com.example.lunchtray.ui.order.EntreeMenuFragment entreeMenuFragment = mEntreeMenuFragment;
@@ -256,7 +260,25 @@ public class FragmentEntreeMenuBindingImpl extends FragmentEntreeMenuBinding imp
                 if (entreeMenuFragmentJavaLangObjectNull) {
 
 
-                    entreeMenuFragment.cancelOrder();
+                    entreeMenuFragment.goToNextScreen();
+                }
+                break;
+            }
+            case 1: {
+                // localize variables for thread safety
+                // viewModel
+                com.example.lunchtray.model.OrderViewModel viewModel = mViewModel;
+                // viewModel != null
+                boolean viewModelJavaLangObjectNull = false;
+
+
+
+                viewModelJavaLangObjectNull = (viewModel) != (null);
+                if (viewModelJavaLangObjectNull) {
+
+
+
+                    viewModel.setEntree("cauliflower");
                 }
                 break;
             }
@@ -273,7 +295,7 @@ public class FragmentEntreeMenuBindingImpl extends FragmentEntreeMenuBinding imp
                 if (entreeMenuFragmentJavaLangObjectNull) {
 
 
-                    entreeMenuFragment.goToNextScreen();
+                    entreeMenuFragment.cancelOrder();
                 }
                 break;
             }
