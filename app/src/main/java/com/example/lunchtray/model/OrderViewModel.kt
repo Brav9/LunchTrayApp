@@ -23,7 +23,7 @@ import androidx.lifecycle.ViewModel
 import com.example.lunchtray.data.DataSource
 import java.text.NumberFormat
 
-class OrderViewModel : ViewModel() {
+annotation class OrderViewModel : ViewModel() {
 
     // Map of menu items
     val menuItems = DataSource.menuItems

@@ -68,7 +68,7 @@ public class FragmentCheckoutBindingImpl extends FragmentCheckoutBinding impleme
     @Override
     public void invalidateAll() {
         synchronized(this) {
-                mDirtyFlags = 0x2L;
+                mDirtyFlags = 0x4L;
         }
         requestRebind();
     }
@@ -89,6 +89,9 @@ public class FragmentCheckoutBindingImpl extends FragmentCheckoutBinding impleme
         if (BR.checkoutFragment == variableId) {
             setCheckoutFragment((com.example.lunchtray.ui.order.CheckoutFragment) variable);
         }
+        else if (BR.viewModel == variableId) {
+            setViewModel((com.example.lunchtray.ui.order.CheckoutFragment) variable);
+        }
         else {
             variableSet = false;
         }
@@ -102,6 +105,9 @@ public class FragmentCheckoutBindingImpl extends FragmentCheckoutBinding impleme
         }
         notifyPropertyChanged(BR.checkoutFragment);
         super.requestRebind();
+    }
+    public void setViewModel(@Nullable com.example.lunchtray.ui.order.CheckoutFragment ViewModel) {
+        this.mViewModel = ViewModel;
     }
 
     @Override
@@ -120,7 +126,7 @@ public class FragmentCheckoutBindingImpl extends FragmentCheckoutBinding impleme
         }
         com.example.lunchtray.ui.order.CheckoutFragment checkoutFragment = mCheckoutFragment;
         // batch finished
-        if ((dirtyFlags & 0x2L) != 0) {
+        if ((dirtyFlags & 0x4L) != 0) {
             // api target 1
 
             this.cancelButton.setOnClickListener(mCallback6);
@@ -148,7 +154,8 @@ public class FragmentCheckoutBindingImpl extends FragmentCheckoutBinding impleme
     private  long mDirtyFlags = 0xffffffffffffffffL;
     /* flag mapping
         flag 0 (0x1L): checkoutFragment
-        flag 1 (0x2L): null
+        flag 1 (0x2L): viewModel
+        flag 2 (0x3L): null
     flag mapping end*/
     //end
 }

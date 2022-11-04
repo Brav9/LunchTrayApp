@@ -21,6 +21,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.lunchtray.R
 import com.example.lunchtray.databinding.FragmentCheckoutBinding
@@ -66,7 +67,9 @@ class CheckoutFragment : Fragment() {
         binding.apply {
             lifecycleOwner = viewLifecycleOwner
             // TODO: initialize the OrderViewModel and CheckoutFragment variables
+            viewModel = sharedViewModel
             checkoutFragment = this@CheckoutFragment
+
         }
     }
 
