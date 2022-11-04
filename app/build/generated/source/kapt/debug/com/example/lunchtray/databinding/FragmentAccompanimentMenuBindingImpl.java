@@ -23,7 +23,13 @@ public class FragmentAccompanimentMenuBindingImpl extends FragmentAccompanimentM
     private final android.widget.ScrollView mboundView0;
     // variables
     @Nullable
+    private final android.view.View.OnClickListener mCallback4;
+    @Nullable
     private final android.view.View.OnClickListener mCallback2;
+    @Nullable
+    private final android.view.View.OnClickListener mCallback5;
+    @Nullable
+    private final android.view.View.OnClickListener mCallback3;
     @Nullable
     private final android.view.View.OnClickListener mCallback1;
     // values
@@ -65,7 +71,10 @@ public class FragmentAccompanimentMenuBindingImpl extends FragmentAccompanimentM
         this.picklesPrice.setTag(null);
         setRootTag(root);
         // listeners
+        mCallback4 = new com.example.lunchtray.generated.callback.OnClickListener(this, 4);
         mCallback2 = new com.example.lunchtray.generated.callback.OnClickListener(this, 2);
+        mCallback5 = new com.example.lunchtray.generated.callback.OnClickListener(this, 5);
+        mCallback3 = new com.example.lunchtray.generated.callback.OnClickListener(this, 3);
         mCallback1 = new com.example.lunchtray.generated.callback.OnClickListener(this, 1);
         invalidateAll();
     }
@@ -212,15 +221,53 @@ public class FragmentAccompanimentMenuBindingImpl extends FragmentAccompanimentM
         if ((dirtyFlags & 0x4L) != 0) {
             // api target 1
 
-            this.cancelButton.setOnClickListener(mCallback1);
-            this.nextButton.setOnClickListener(mCallback2);
+            this.berries.setOnClickListener(mCallback2);
+            this.bread.setOnClickListener(mCallback1);
+            this.cancelButton.setOnClickListener(mCallback4);
+            this.nextButton.setOnClickListener(mCallback5);
+            this.pickles.setOnClickListener(mCallback3);
         }
     }
     // Listener Stub Implementations
     // callback impls
     public final void _internalCallbackOnClick(int sourceId , android.view.View callbackArg_0) {
         switch(sourceId) {
+            case 4: {
+                // localize variables for thread safety
+                // accompanimentMenuFragment != null
+                boolean accompanimentMenuFragmentJavaLangObjectNull = false;
+                // accompanimentMenuFragment
+                com.example.lunchtray.ui.order.AccompanimentMenuFragment accompanimentMenuFragment = mAccompanimentMenuFragment;
+
+
+
+                accompanimentMenuFragmentJavaLangObjectNull = (accompanimentMenuFragment) != (null);
+                if (accompanimentMenuFragmentJavaLangObjectNull) {
+
+
+                    accompanimentMenuFragment.cancelOrder();
+                }
+                break;
+            }
             case 2: {
+                // localize variables for thread safety
+                // viewModel
+                com.example.lunchtray.model.OrderViewModel viewModel = mViewModel;
+                // viewModel != null
+                boolean viewModelJavaLangObjectNull = false;
+
+
+
+                viewModelJavaLangObjectNull = (viewModel) != (null);
+                if (viewModelJavaLangObjectNull) {
+
+
+
+                    viewModel.setEntree("berries");
+                }
+                break;
+            }
+            case 5: {
                 // localize variables for thread safety
                 // accompanimentMenuFragment != null
                 boolean accompanimentMenuFragmentJavaLangObjectNull = false;
@@ -237,20 +284,39 @@ public class FragmentAccompanimentMenuBindingImpl extends FragmentAccompanimentM
                 }
                 break;
             }
+            case 3: {
+                // localize variables for thread safety
+                // viewModel
+                com.example.lunchtray.model.OrderViewModel viewModel = mViewModel;
+                // viewModel != null
+                boolean viewModelJavaLangObjectNull = false;
+
+
+
+                viewModelJavaLangObjectNull = (viewModel) != (null);
+                if (viewModelJavaLangObjectNull) {
+
+
+
+                    viewModel.setEntree("pickles");
+                }
+                break;
+            }
             case 1: {
                 // localize variables for thread safety
-                // accompanimentMenuFragment != null
-                boolean accompanimentMenuFragmentJavaLangObjectNull = false;
-                // accompanimentMenuFragment
-                com.example.lunchtray.ui.order.AccompanimentMenuFragment accompanimentMenuFragment = mAccompanimentMenuFragment;
+                // viewModel
+                com.example.lunchtray.model.OrderViewModel viewModel = mViewModel;
+                // viewModel != null
+                boolean viewModelJavaLangObjectNull = false;
 
 
 
-                accompanimentMenuFragmentJavaLangObjectNull = (accompanimentMenuFragment) != (null);
-                if (accompanimentMenuFragmentJavaLangObjectNull) {
+                viewModelJavaLangObjectNull = (viewModel) != (null);
+                if (viewModelJavaLangObjectNull) {
 
 
-                    accompanimentMenuFragment.cancelOrder();
+
+                    viewModel.setEntree("bread");
                 }
                 break;
             }

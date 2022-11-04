@@ -81,7 +81,6 @@ class OrderViewModel : ViewModel() {
         //  subtotal value. This ensures that we only charge for the currently selected entree.
 
 
-
         // TODO: set the current entree value to the menu item corresponding to the passed in string
         // TODO: update the subtotal to reflect the price of the selected entree.
         updateSubtotal(previousEntreePrice)
@@ -109,6 +108,8 @@ class OrderViewModel : ViewModel() {
     fun setAccompaniment(accompaniment: String) {
         // TODO: if _accompaniment.value is not null, set the previous accompaniment price to the
         //  current accompaniment price.
+        previousAccompanimentPrice = menuItems[accompaniment]!!.price
+        Log.d("MyLog", "$previousAccompanimentPrice")
 
         // TODO: if _accompaniment.value is not null subtract the previous accompaniment price from
         //  the current subtotal value. This ensures that we only charge for the currently selected
@@ -117,6 +118,7 @@ class OrderViewModel : ViewModel() {
         // TODO: set the current accompaniment value to the menu item corresponding to the passed in
         //  string
         // TODO: update the subtotal to reflect the price of the selected accompaniment.
+        updateSubtotal(previousAccompanimentPrice)
     }
 
     /**
@@ -126,8 +128,8 @@ class OrderViewModel : ViewModel() {
         // TODO: if _subtotal.value is not null, update it to reflect the price of the recently
         //  added item.
         //  Otherwise, set _subtotal.value to equal the price of the item.
-            _subtotal.value = itemPrice
-            Log.d("MyLog", "Subtotal is $itemPrice")
+        _subtotal.value = itemPrice
+        Log.d("MyLog", "Subtotal is $itemPrice")
 
         // TODO: calculate the tax and resulting total
         calculateTaxAndTotal()
@@ -146,5 +148,11 @@ class OrderViewModel : ViewModel() {
      */
     fun resetOrder() {
         // TODO: Reset all values associated with an order
+        _entree.value = menuItems[""]
+        _side.value = menuItems[""]
+        _accompaniment.value = menuItems[""]
+        _subtotal.value = 0.0
+        _total.value = 0.0
+        _tax.value = 0.0
     }
 }
