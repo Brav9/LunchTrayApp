@@ -90,7 +90,7 @@ public class FragmentCheckoutBindingImpl extends FragmentCheckoutBinding impleme
             setCheckoutFragment((com.example.lunchtray.ui.order.CheckoutFragment) variable);
         }
         else if (BR.viewModel == variableId) {
-            setViewModel((com.example.lunchtray.ui.order.CheckoutFragment) variable);
+            setViewModel((com.example.lunchtray.model.OrderViewModel) variable);
         }
         else {
             variableSet = false;
@@ -106,7 +106,7 @@ public class FragmentCheckoutBindingImpl extends FragmentCheckoutBinding impleme
         notifyPropertyChanged(BR.checkoutFragment);
         super.requestRebind();
     }
-    public void setViewModel(@Nullable com.example.lunchtray.ui.order.CheckoutFragment ViewModel) {
+    public void setViewModel(@Nullable com.example.lunchtray.model.OrderViewModel ViewModel) {
         this.mViewModel = ViewModel;
     }
 

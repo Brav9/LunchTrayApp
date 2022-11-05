@@ -23,7 +23,7 @@ import androidx.lifecycle.ViewModel
 import com.example.lunchtray.data.DataSource
 import java.text.NumberFormat
 
-annotation class OrderViewModel : ViewModel() {
+class OrderViewModel : ViewModel() {
 
     // Map of menu items
     val menuItems = DataSource.menuItems
@@ -72,13 +72,16 @@ annotation class OrderViewModel : ViewModel() {
     fun setEntree(entree: String) {
         // TODO: if _entree.value is not null, set the previous entree price to the current
         //  entree price.
-
-        previousEntreePrice = menuItems[entree]!!.price
+        previousEntreePrice = menuItems[entree]?.price!!
         Log.d("MyLog", "$previousEntreePrice")
 
 
         // TODO: if _subtotal.value is not null subtract the previous entree price from the current
         //  subtotal value. This ensures that we only charge for the currently selected entree.
+        if (_subtotal.value == null) {
+            val entreePrice = (subtotal.value?.toDouble())?.minus(previousAccompanimentPrice)!!
+            Log.d("MyLog", "entreePrice is $entreePrice")
+        }
 
 
         // TODO: set the current entree value to the menu item corresponding to the passed in string
@@ -141,6 +144,11 @@ annotation class OrderViewModel : ViewModel() {
     fun calculateTaxAndTotal() {
         // TODO: set _tax.value based on the subtotal and the tax rate.
         // TODO: set the total based on the subtotal and _tax.value.
+        _tax.value = taxRate * previousEntreePrice
+
+        _total.value = previousEntreePrice + _tax.value!!
+        Log.d("MyLog", "_tax is ${_tax.value}")
+        Log.d("MyLog", "_total is ${_total.value}")
     }
 
     /**

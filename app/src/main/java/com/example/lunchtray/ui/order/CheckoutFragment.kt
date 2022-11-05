@@ -69,7 +69,6 @@ class CheckoutFragment : Fragment() {
             // TODO: initialize the OrderViewModel and CheckoutFragment variables
             viewModel = sharedViewModel
             checkoutFragment = this@CheckoutFragment
-
         }
     }
 
@@ -79,6 +78,7 @@ class CheckoutFragment : Fragment() {
     fun cancelOrder() {
         // TODO: Reset order in view model
         // TODO: Navigate back to the [StartFragment] to start over
+
         findNavController().navigate(R.id.action_checkoutFragment_to_startOrderFragment)
     }
 
