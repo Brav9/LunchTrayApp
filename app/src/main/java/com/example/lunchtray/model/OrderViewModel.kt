@@ -40,6 +40,7 @@ class OrderViewModel : ViewModel() {
     private val _entree = MutableLiveData<MenuItem?>()
     val entree: LiveData<MenuItem?> = _entree
 
+
     // Side for the order
     private val _side = MutableLiveData<MenuItem?>()
     val side: LiveData<MenuItem?> = _side
@@ -73,7 +74,11 @@ class OrderViewModel : ViewModel() {
         // TODO: if _entree.value is not null, set the previous entree price to the current
         //  entree price.
         previousEntreePrice = menuItems[entree]?.price!!
+        _entree.value = menuItems[entree]
+        val deep = menuItems[entree]?.name
+        Log.d("MyLog", "entree is ${this.entree.value}")
         Log.d("MyLog", "$previousEntreePrice")
+        Log.d("MyLog", "$deep")
 
 
         // TODO: if _subtotal.value is not null subtract the previous entree price from the current
@@ -82,8 +87,6 @@ class OrderViewModel : ViewModel() {
             val entreePrice = (subtotal.value?.toDouble())?.minus(previousAccompanimentPrice)!!
             Log.d("MyLog", "entreePrice is $entreePrice")
         }
-
-
         // TODO: set the current entree value to the menu item corresponding to the passed in string
         // TODO: update the subtotal to reflect the price of the selected entree.
         updateSubtotal(previousEntreePrice)

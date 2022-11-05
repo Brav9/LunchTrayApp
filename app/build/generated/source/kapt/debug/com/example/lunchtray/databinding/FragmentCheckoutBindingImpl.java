@@ -14,8 +14,7 @@ public class FragmentCheckoutBindingImpl extends FragmentCheckoutBinding impleme
     static {
         sIncludes = null;
         sViewsWithIds = new android.util.SparseIntArray();
-        sViewsWithIds.put(R.id.order_summary, 2);
-        sViewsWithIds.put(R.id.entree_selection, 3);
+        sViewsWithIds.put(R.id.order_summary, 3);
         sViewsWithIds.put(R.id.entree_price, 4);
         sViewsWithIds.put(R.id.side_selection, 5);
         sViewsWithIds.put(R.id.side_price, 6);
@@ -41,14 +40,14 @@ public class FragmentCheckoutBindingImpl extends FragmentCheckoutBinding impleme
         this(bindingComponent, root, mapBindings(bindingComponent, root, 14, sIncludes, sViewsWithIds));
     }
     private FragmentCheckoutBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
-        super(bindingComponent, root, 0
+        super(bindingComponent, root, 1
             , (android.widget.TextView) bindings[8]
             , (android.widget.TextView) bindings[7]
-            , (android.widget.Button) bindings[1]
+            , (android.widget.Button) bindings[2]
             , (android.view.View) bindings[9]
             , (android.widget.TextView) bindings[4]
+            , (android.widget.TextView) bindings[1]
             , (android.widget.TextView) bindings[3]
-            , (android.widget.TextView) bindings[2]
             , (android.widget.TextView) bindings[6]
             , (android.widget.TextView) bindings[5]
             , (android.widget.Button) bindings[13]
@@ -57,6 +56,7 @@ public class FragmentCheckoutBindingImpl extends FragmentCheckoutBinding impleme
             , (android.widget.TextView) bindings[12]
             );
         this.cancelButton.setTag(null);
+        this.entreeSelection.setTag(null);
         this.mboundView0 = (android.widget.ScrollView) bindings[0];
         this.mboundView0.setTag(null);
         setRootTag(root);
@@ -68,7 +68,7 @@ public class FragmentCheckoutBindingImpl extends FragmentCheckoutBinding impleme
     @Override
     public void invalidateAll() {
         synchronized(this) {
-                mDirtyFlags = 0x4L;
+                mDirtyFlags = 0x8L;
         }
         requestRebind();
     }
@@ -101,18 +101,34 @@ public class FragmentCheckoutBindingImpl extends FragmentCheckoutBinding impleme
     public void setCheckoutFragment(@Nullable com.example.lunchtray.ui.order.CheckoutFragment CheckoutFragment) {
         this.mCheckoutFragment = CheckoutFragment;
         synchronized(this) {
-            mDirtyFlags |= 0x1L;
+            mDirtyFlags |= 0x2L;
         }
         notifyPropertyChanged(BR.checkoutFragment);
         super.requestRebind();
     }
     public void setViewModel(@Nullable com.example.lunchtray.model.OrderViewModel ViewModel) {
         this.mViewModel = ViewModel;
+        synchronized(this) {
+            mDirtyFlags |= 0x4L;
+        }
+        notifyPropertyChanged(BR.viewModel);
+        super.requestRebind();
     }
 
     @Override
     protected boolean onFieldChange(int localFieldId, Object object, int fieldId) {
         switch (localFieldId) {
+            case 0 :
+                return onChangeViewModelEntree((androidx.lifecycle.LiveData<com.example.lunchtray.model.MenuItem>) object, fieldId);
+        }
+        return false;
+    }
+    private boolean onChangeViewModelEntree(androidx.lifecycle.LiveData<com.example.lunchtray.model.MenuItem> ViewModelEntree, int fieldId) {
+        if (fieldId == BR._all) {
+            synchronized(this) {
+                    mDirtyFlags |= 0x1L;
+            }
+            return true;
         }
         return false;
     }
@@ -124,12 +140,44 @@ public class FragmentCheckoutBindingImpl extends FragmentCheckoutBinding impleme
             dirtyFlags = mDirtyFlags;
             mDirtyFlags = 0;
         }
+        com.example.lunchtray.model.MenuItem viewModelEntreeGetValue = null;
         com.example.lunchtray.ui.order.CheckoutFragment checkoutFragment = mCheckoutFragment;
+        androidx.lifecycle.LiveData<com.example.lunchtray.model.MenuItem> viewModelEntree = null;
+        java.lang.String viewModelEntreeName = null;
+        com.example.lunchtray.model.OrderViewModel viewModel = mViewModel;
+
+        if ((dirtyFlags & 0xdL) != 0) {
+
+
+
+                if (viewModel != null) {
+                    // read viewModel.entree
+                    viewModelEntree = viewModel.getEntree();
+                }
+                updateLiveDataRegistration(0, viewModelEntree);
+
+
+                if (viewModelEntree != null) {
+                    // read viewModel.entree.getValue()
+                    viewModelEntreeGetValue = viewModelEntree.getValue();
+                }
+
+
+                if (viewModelEntreeGetValue != null) {
+                    // read viewModel.entree.getValue().name
+                    viewModelEntreeName = viewModelEntreeGetValue.getName();
+                }
+        }
         // batch finished
-        if ((dirtyFlags & 0x4L) != 0) {
+        if ((dirtyFlags & 0x8L) != 0) {
             // api target 1
 
             this.cancelButton.setOnClickListener(mCallback6);
+        }
+        if ((dirtyFlags & 0xdL) != 0) {
+            // api target 1
+
+            androidx.databinding.adapters.TextViewBindingAdapter.setText(this.entreeSelection, viewModelEntreeName);
         }
     }
     // Listener Stub Implementations
@@ -153,9 +201,10 @@ public class FragmentCheckoutBindingImpl extends FragmentCheckoutBinding impleme
     // dirty flag
     private  long mDirtyFlags = 0xffffffffffffffffL;
     /* flag mapping
-        flag 0 (0x1L): checkoutFragment
-        flag 1 (0x2L): viewModel
-        flag 2 (0x3L): null
+        flag 0 (0x1L): viewModel.entree
+        flag 1 (0x2L): checkoutFragment
+        flag 2 (0x3L): viewModel
+        flag 3 (0x4L): null
     flag mapping end*/
     //end
 }
