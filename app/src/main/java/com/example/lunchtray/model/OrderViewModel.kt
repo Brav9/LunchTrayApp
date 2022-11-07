@@ -116,6 +116,7 @@ class OrderViewModel : ViewModel() {
         // TODO: if _accompaniment.value is not null, set the previous accompaniment price to the
         //  current accompaniment price.
         previousAccompanimentPrice = menuItems[accompaniment]!!.price
+        _accompaniment.value = menuItems[accompaniment]
         Log.d("MyLog", "$previousAccompanimentPrice")
 
         // TODO: if _accompaniment.value is not null subtract the previous accompaniment price from

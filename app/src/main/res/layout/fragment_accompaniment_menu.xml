@@ -57,7 +57,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text='@{viewModel.menuItems["bread"].name}'
-                    android:onClick='@{() -> viewModel.setEntree("bread")}'
+                    android:onClick='@{() -> viewModel.setAccompaniment("bread")}'
                     android:textAppearance="?attr/textAppearanceBody1"
                     tools:text="Accompaniment 1" />
 
@@ -86,7 +86,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text='@{viewModel.menuItems["berries"].name}'
-                    android:onClick='@{() -> viewModel.setEntree("berries")}'
+                    android:onClick='@{() -> viewModel.setAccompaniment("berries")}'
                     android:textAppearance="?attr/textAppearanceBody1"
                     tools:text="Accompaniment 2" />
 
@@ -118,7 +118,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text='@{viewModel.menuItems["pickles"].name}'
-                    android:onClick='@{() -> viewModel.setEntree("pickles")}'
+                    android:onClick='@{() -> viewModel.setAccompaniment("pickles")}'
                     android:textAppearance="?attr/textAppearanceBody1"
                     tools:text="Accompaniment 3" />
 
