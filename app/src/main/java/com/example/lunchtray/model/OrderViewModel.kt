@@ -98,6 +98,7 @@ class OrderViewModel : ViewModel() {
     fun setSide(side: String) {
         // TODO: if _side.value is not null, set the previous side price to the current side price.
         previousSidePrice = menuItems[side]!!.price
+        _side.value = menuItems[side]
         Log.d("MyLog", "$previousSidePrice")
 
         // TODO: if _subtotal.value is not null subtract the previous side price from the current

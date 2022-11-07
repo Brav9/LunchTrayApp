@@ -290,7 +290,7 @@ public class FragmentSideMenuBindingImpl extends FragmentSideMenuBinding impleme
 
 
 
-                    viewModel.setEntree("soup");
+                    viewModel.setSide("soup");
                 }
                 break;
             }
@@ -325,7 +325,7 @@ public class FragmentSideMenuBindingImpl extends FragmentSideMenuBinding impleme
 
 
 
-                    viewModel.setEntree("rice");
+                    viewModel.setSide("rice");
                 }
                 break;
             }
@@ -343,7 +343,7 @@ public class FragmentSideMenuBindingImpl extends FragmentSideMenuBinding impleme
 
 
 
-                    viewModel.setEntree("potatoes");
+                    viewModel.setSide("potatoes");
                 }
                 break;
             }
@@ -361,7 +361,7 @@ public class FragmentSideMenuBindingImpl extends FragmentSideMenuBinding impleme
 
 
 
-                    viewModel.setEntree("salad");
+                    viewModel.setSide("salad");
                 }
                 break;
             }
