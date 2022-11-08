@@ -136,7 +136,8 @@
                 android:textAppearance="?attr/textAppearanceHeadline6"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tax"
-                tools:text="Total: $10.73" />
+                tools:text="Total: $10.73"
+                android:text="@{@string/total(viewModel.total)}"/>
 
             <!-- TODO: submit the order when clicked -->
             <Button

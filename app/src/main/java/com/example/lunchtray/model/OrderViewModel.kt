@@ -156,7 +156,7 @@ class OrderViewModel : ViewModel() {
         // TODO: set the total based on the subtotal and _tax.value.
         _tax.value = taxRate * _subtotal.value!!
 
-        _total.value = previousEntreePrice + _tax.value!!
+        _total.value = _subtotal.value!! + _tax.value!!
         Log.d("MyLog", "_tax is ${_tax.value}")
         Log.d("MyLog", "_total is ${_total.value}")
     }
