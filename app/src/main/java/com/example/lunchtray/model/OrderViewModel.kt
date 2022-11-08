@@ -138,7 +138,6 @@ class OrderViewModel : ViewModel() {
         if (_subtotal.value !== null) {
             _subtotal.value = _subtotal.value!! + itemPrice
         } else {
-
             _subtotal.value = itemPrice
         }
         //  Otherwise, set _subtotal.value to equal the price of the item.
@@ -155,7 +154,7 @@ class OrderViewModel : ViewModel() {
     fun calculateTaxAndTotal() {
         // TODO: set _tax.value based on the subtotal and the tax rate.
         // TODO: set the total based on the subtotal and _tax.value.
-        _tax.value = taxRate * previousEntreePrice
+        _tax.value = taxRate * _subtotal.value!!
 
         _total.value = previousEntreePrice + _tax.value!!
         Log.d("MyLog", "_tax is ${_tax.value}")
